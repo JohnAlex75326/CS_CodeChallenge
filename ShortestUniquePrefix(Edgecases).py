@@ -13,3 +13,4 @@ class Trie:
         for char in word:
             if char not in node.children:
                 node.children[char] = TrieNode()
+            node = node.children[char]
