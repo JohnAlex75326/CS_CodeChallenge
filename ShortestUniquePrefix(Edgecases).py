@@ -14,3 +14,5 @@ class Trie:
             if char not in node.children:
                 node.children[char] = TrieNode()
             node = node.children[char]
+            node.count += 1
+        node.is_end_of_word = True
