@@ -4,4 +4,6 @@ class TrieNode:
         self.count = 0
         self.is_end_of_word = False
 
-class Trie
+class Trie:
+    def __init__(self):
+        self.
