@@ -10,3 +10,4 @@ class Trie:
 
     def insert(self, word: str):
         node = self.root
+        for char in word:
