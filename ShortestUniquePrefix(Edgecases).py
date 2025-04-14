@@ -6,4 +6,4 @@ class TrieNode:
 
 class Trie:
     def __init__(self):
-        self.root = 
+        self.root = TrieNode()
