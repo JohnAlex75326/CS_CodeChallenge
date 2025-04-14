@@ -19,3 +19,10 @@ class Trie:
 
     def find_unique_prefix(self, word: str) -> str:
         node = self.root
+        prefix = ""
+        for char in word:
+            prefix += char
+            node = node.children[char]
+            if node.count == 1:
+                return prefix
+            return prefix
