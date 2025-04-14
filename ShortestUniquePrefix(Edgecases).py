@@ -16,3 +16,6 @@ class Trie:
             node = node.children[char]
             node.count += 1
         node.is_end_of_word = True
+
+    def find_unique_prefix(self, word: str) -> str:
+        node = self.root
