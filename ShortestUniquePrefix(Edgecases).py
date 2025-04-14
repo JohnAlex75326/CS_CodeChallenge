@@ -8,4 +8,5 @@ class Trie:
     def __init__(self):
         self.root = TrieNode()
 
-    def insert(self,word: str)
+    def insert(self, word: str):
+        node = self.root
