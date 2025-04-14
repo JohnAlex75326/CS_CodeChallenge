@@ -26,3 +26,14 @@ class Trie:
             if node.count == 1:
                 return prefix
             return prefix
+        
+class ShortestUniquePrefixFinder:
+    def __init__(self, words):
+        self.trie = Trie()
+        self.words = words
+        for word in words:
+            if word: #skip empty strings
+                self.trie.insert(word)
+
+        def get_unique_prefixes(self):
+            return[self.trie.find_unique_prefix(word) if word else "" for word in self.words]
