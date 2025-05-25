@@ -1,5 +1,6 @@
 import logging
 from datetime import datetime
+import csv
 
 # === Setup Logging to File and Console ===
 logger = logging.getLogger("CalculatorLogger")
@@ -85,6 +86,31 @@ def run_calculator():
 
     print("\n=== Operation History ===")
     calc.print_history()
+
+"""
+# === Custom CSV Formatter ===
+class CSVFormatter(logging.Formatter):
+    def __init__(self):
+        super().__init__()
+        self.fields = ['timestamp', 'level', 'message']
+
+    def format(self, record):
+        timestamp = datetime.fromtimestamp(record.created).isoformat()
+        level = record.levelname
+        message = record.getMessage()
+        return f'{timestamp},{level},"{message}"'
+
+# === Setup CSV Logging ===
+csv_logger = logging.getLogger("CSVLogger")
+csv_logger.setLevel(logging.DEBUG)
+
+csv_file_handler = logging.FileHandler("logs.csv", mode='w', encoding='utf-8')
+csv_file_handler.setLevel(logging.DEBUG)
+csv_file_handler.setFormatter(CSVFormatter())
+
+csv_logger.addHandler(csv_file_handler)
+
+"""
 
 if __name__ == "__main__":
     run_calculator()

@@ -1,0 +1,21 @@
+2025-05-26 04:22:17,111 - INFO - Addition: 10.0 + 5.0 = 15.0
+2025-05-26 04:22:17,111 - INFO - Addition: 7.0 + 0.0 = 7.0
+2025-05-26 04:22:17,112 - INFO - Addition: 3.0 + 4.0 = 7.0
+2025-05-26 04:22:17,112 - INFO - Addition: 12.0 + 6.0 = 18.0
+2025-05-26 04:22:17,112 - WARNING - Invalid input: a, 2
+2025-05-26 04:22:17,112 - INFO - Subtraction: 10.0 - 5.0 = 5.0
+2025-05-26 04:22:17,112 - INFO - Subtraction: 7.0 - 0.0 = 7.0
+2025-05-26 04:22:17,112 - INFO - Subtraction: 3.0 - 4.0 = -1.0
+2025-05-26 04:22:17,112 - INFO - Subtraction: 12.0 - 6.0 = 6.0
+2025-05-26 04:22:17,113 - WARNING - Invalid input: a, 2
+2025-05-26 04:22:17,113 - INFO - Multiplication: 10.0 * 5.0 = 50.0
+2025-05-26 04:22:17,113 - INFO - Multiplication: 7.0 * 0.0 = 0.0
+2025-05-26 04:22:17,113 - INFO - Multiplication: 3.0 * 4.0 = 12.0
+2025-05-26 04:22:17,114 - INFO - Multiplication: 12.0 * 6.0 = 72.0
+2025-05-26 04:22:17,114 - WARNING - Invalid input: a, 2
+2025-05-26 04:22:17,114 - INFO - Division: 10.0 / 5.0 = 2.0
+2025-05-26 04:22:17,114 - ERROR - Division by zero attempt
+2025-05-26 04:22:17,114 - INFO - Division: 3.0 / 4.0 = 0.75
+2025-05-26 04:22:17,114 - INFO - Division: 12.0 / 6.0 = 2.0
+2025-05-26 04:22:17,114 - WARNING - Invalid input: a, 2
+2025-05-26 04:22:17,115 - DEBUG - Printing operation history
