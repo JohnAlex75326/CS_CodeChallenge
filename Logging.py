@@ -87,7 +87,7 @@ def run_calculator():
     print("\n=== Operation History ===")
     calc.print_history()
 
-"""
+
 # === Custom CSV Formatter ===
 class CSVFormatter(logging.Formatter):
     def __init__(self):
@@ -109,8 +109,6 @@ csv_file_handler.setLevel(logging.DEBUG)
 csv_file_handler.setFormatter(CSVFormatter())
 
 csv_logger.addHandler(csv_file_handler)
-
-"""
 
 if __name__ == "__main__":
     run_calculator()
