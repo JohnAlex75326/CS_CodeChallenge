@@ -39,4 +39,4 @@ class ShortestUniquePrefixFinder:
             return[self.trie.find_unique_prefix(word) if word else "" for word in self.words]
 #Add print statements to make code easier to visualize and readable in the command line#
 print("This is a statement that will print to indicate a visual aid to the user that a line of code is executed")
-print("This is another statement that will also print a visual aid to th")
+print("This is another statement that will also print a visual aid to the")
