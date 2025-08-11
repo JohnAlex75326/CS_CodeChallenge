@@ -16,3 +16,6 @@ def speak_message(message):
         tts_engine.runAndWait()
     else:
         print(message)
+        if platform.system == "Windows":
+            import winsound
+            winsound.Beep(1000,500)
