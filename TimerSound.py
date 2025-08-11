@@ -9,3 +9,6 @@ try:
     tts_engine = pyttsx3.init()
 except ImportError:
     tts_engine = None
+
+def speak_message(message):
+    
