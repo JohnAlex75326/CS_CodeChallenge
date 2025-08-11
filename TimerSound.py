@@ -7,3 +7,5 @@ import platform
 try:
     import pyttsx3
     tts_engine = pyttsx3.init()
+except ImportError:
+    tts_engine = None
