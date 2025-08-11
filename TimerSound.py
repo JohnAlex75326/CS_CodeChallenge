@@ -33,3 +33,6 @@ def stopwatch():
             speak_message(message)
     except KeyboardInterrupt:
         print("\nStopwatch stopped.")
+
+if __name__ == "__main__":
+    stopwatch()
