@@ -30,3 +30,4 @@ def stopwatch():
             time.sleep(60)
             minutes_passed +=1
             message = f"{minutes_passed} minute {'s' if minutes_passed > 1 else ''}passed"
+            speak_message(message)
