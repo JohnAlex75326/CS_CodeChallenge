@@ -21,3 +21,4 @@ def speak_message(message):
             winsound.Beep(1000,500)
         else:
             os.system('printf"\\a"')
+        
