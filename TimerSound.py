@@ -19,3 +19,5 @@ def speak_message(message):
         if platform.system == "Windows":
             import winsound
             winsound.Beep(1000,500)
+        else:
+            os.system('printf"\\a"')
