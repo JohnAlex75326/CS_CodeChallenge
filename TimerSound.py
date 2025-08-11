@@ -14,3 +14,5 @@ def speak_message(message):
     if tts_engine:
         tts_engine.say(message)
         tts_engine.runAndWait()
+    else:
+        print(message)
