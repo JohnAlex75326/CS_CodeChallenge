@@ -71,7 +71,7 @@ def stopwatch_minute_announcer():
                     speak_async("Switch")
 
                 # Update trackers
-                minutes_announced = whole_minutes
+                minutes_announced = whole_minutes   
                 next_announce_time = start_time + (minutes_announced + 1) * 60
 
             time.sleep(0.15)  # short sleep for responsive display
