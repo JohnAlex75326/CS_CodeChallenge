@@ -5,9 +5,9 @@
 
 #define MAX_K 5
 #define MAX_N (MAX_K*MAX_K)
-#define MAX_MOVES 100000  /* generous path buffer for worst cases */
+#define MAX_MOVES 100000 
 
-/* Directions: order impacts search performance a bit */
+/* Directions */
 static const int DR[4] = {0,  0, -1, 1};   /* LEFT, RIGHT, UP, DOWN — movement of blank (0) */
 static const int DC[4] = {-1, 1,  0, 0};
 static const char *DIRNAME[4] = {"LEFT", "RIGHT", "UP", "DOWN"};  /* printed names */
@@ -17,20 +17,20 @@ static int k;                 /* board size k x k */
 static int N;                 /* cells = k*k */
 static int start[MAX_N];
 static int goal_pos_r[MAX_N], goal_pos_c[MAX_N]; /* goal positions for each tile value (0..N-1), zero included */
-static int goal[MAX_N];       /* goal array 0..N-1 */
+static int goal[MAX_N];      
 
-static int path[MAX_MOVES];   /* stores directions indices 0..3 */
+static int path[MAX_MOVES];  
 static int path_len;
 
-/* Helpers */
+
 static inline int idx(int r, int c) { return r * k + c; }
 
-/* Manhattan distance heuristic (admissible; exclude blank) */
+
 static int heuristic(const int *board) {
     int h = 0;
     for (int i = 0; i < N; ++i) {
         int v = board[i];
-        if (v == 0) continue; /* don't count blank */
+        if (v == 0) continue; 
         int r = i / k, c = i % k;
         int gr = goal_pos_r[v], gc = goal_pos_c[v];
         int dr = r - gr; if (dr < 0) dr = -dr;
@@ -41,7 +41,7 @@ static int heuristic(const int *board) {
 }
 
 /* Check solvability for goal with blank at (0,0) (top-left).
-   We compute inversions by reading tiles row-wise, skipping 0.
+   Compute inversions by reading tiles row-wise, not including 0.
    For goal at top-left, solvability differs from the standard bottom-right case.
    Derivation:
    - Let inv = inversion count.
@@ -71,7 +71,7 @@ static int is_solvable(const int *board) {
 }
 
 /* IDA* search */
-static int best_over; /* next threshold candidate */
+static int best_over; 
 
 static int dfs(int *board, int zr, int zc, int g, int bound, int prev_dir) {
     int h = heuristic(board);
@@ -123,9 +123,9 @@ int main(void) {
         if (scanf("%d", &start[i]) != 1) return 0;
     }
 
-    /* Build goal: 0,1,2,...,N-1 (blank at top-left) */
+
     for (int i = 0; i < N; ++i) {
-        goal[i] = i; /* tile value equals index */
+        goal[i] = i; 
     }
     for (int v = 0; v < N; ++v) {
         goal_pos_r[v] = v / k;
@@ -144,12 +144,12 @@ int main(void) {
 
     /* Solvability check */
     if (!is_solvable(start)) {
-        /* Problem statement suggests tests are solvable. If not, print 0 moves (or could print nothing). */
+        
         printf("0\n");
         return 0;
     }
 
-    /* Prepare for IDA* */
+    
     int board[MAX_N];
     memcpy(board, start, sizeof(int) * N);
 
