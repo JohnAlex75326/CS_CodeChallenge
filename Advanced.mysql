@@ -1,0 +1,53 @@
+SELECT
+  d.submission_date,
+  /* # of hackers who have submitted on EVERY day from 2016-03-01 up to this date */
+  (
+    SELECT COUNT(DISTINCT s1.hacker_id)
+    FROM Submissions s1
+    WHERE NOT EXISTS (
+      /* any required day up to d.submission_date that this hacker missed? */
+      SELECT 1
+      FROM (
+        SELECT DISTINCT submission_date
+        FROM Submissions
+        WHERE submission_date BETWEEN '2016-03-01' AND d.submission_date
+      ) AS dd
+      WHERE NOT EXISTS (
+        SELECT 1
+        FROM Submissions s2
+        WHERE s2.hacker_id = s1.hacker_id
+          AND s2.submission_date = dd.submission_date
+      )
+    )
+  ) AS consistent_hackers,
+
+  /* hacker_id with max submissions on this day (ties → lowest id) */
+  (
+    SELECT s3.hacker_id
+    FROM Submissions s3
+    WHERE s3.submission_date = d.submission_date
+    GROUP BY s3.hacker_id
+    ORDER BY COUNT(*) DESC, s3.hacker_id ASC
+    LIMIT 1
+  ) AS hacker_id,
+
+  /* that hacker's name */
+  (
+    SELECT h.name
+    FROM Hackers h
+    WHERE h.hacker_id = (
+      SELECT s4.hacker_id
+      FROM Submissions s4
+      WHERE s4.submission_date = d.submission_date
+      GROUP BY s4.hacker_id
+      ORDER BY COUNT(*) DESC, s4.hacker_id ASC
+      LIMIT 1
+    )
+  ) AS name
+
+FROM (
+  SELECT DISTINCT submission_date
+  FROM Submissions
+  WHERE submission_date BETWEEN '2016-03-01' AND '2016-03-15'
+) AS d
+ORDER BY d.submission_date;
