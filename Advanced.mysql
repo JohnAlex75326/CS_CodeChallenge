@@ -1,5 +1,5 @@
 SELECT
-  d.submission_date,,,
+  d.submission_date
   /* # of hackers who have submitted on EVERY day from 2016-03-01 up to this date */
   (
     SELECT COUNT(DISTINCT s1.hacker_id)
